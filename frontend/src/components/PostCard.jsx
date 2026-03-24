@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { formatDistanceToNow } from "date-fns";
-import { api } from "../../lib/api";
+import { api } from "../lib/api";
 
 export default function PostCard({ post, apiClient, onCommentClick }) {
   const [liked, setLiked] = useState(false);

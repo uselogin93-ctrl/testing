@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { api } from "../../lib/api";
+import { api } from "../lib/api";
 
 export default function CreatePost({ apiClient, onPostCreated }) {
   const [content, setContent] = useState("");
