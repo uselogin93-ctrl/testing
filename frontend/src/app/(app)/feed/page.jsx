@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useApi } from "../../hooks/useApi";
-import { api } from "../../lib/api";
-import PostCard from "../../components/PostCard";
-import CreatePost from "../../components/CreatePost";
-import CommentModal from "../../components/CommentModal";
+import { useApi } from "../../../hooks/useApi";
+import { api } from "../../../lib/api";
+import PostCard from "../../../components/PostCard";
+import CreatePost from "../../../components/CreatePost";
+import CommentModal from "../../../components/CommentModal";
 
 export default function FeedPage() {
   const apiClient = useApi();

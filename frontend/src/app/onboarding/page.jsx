@@ -2,7 +2,7 @@
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { api } from "../../lib/api";
+import { api } from "../lib/api";
 
 export default function OnboardingPage() {
   const { user, isLoaded } = useUser();
