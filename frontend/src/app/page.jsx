@@ -1,6 +1,13 @@
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 import Link from "next/link";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const { userId } = auth();
+  if (userId) {
+    redirect("/feed");
+  }
+
   return (
     <main
       style={{

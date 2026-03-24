@@ -11,7 +11,7 @@ export default function SignInPage() {
         background: "var(--bg)",
       }}
     >
-      <SignIn />
+      <SignIn afterSignInUrl="/feed" />
     </main>
   );
 }
