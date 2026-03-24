@@ -1,2 +1,1 @@
-# testing
-a testing repository
+testing 
