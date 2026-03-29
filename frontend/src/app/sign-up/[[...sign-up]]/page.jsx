@@ -11,7 +11,7 @@ export default function SignUpPage() {
         background: "var(--bg)",
       }}
     >
-      <SignUp afterSignUpUrl="/feed" />
+      <SignUp />
     </main>
   );
 }
