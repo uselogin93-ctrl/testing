@@ -8,7 +8,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      afterSignInUrl="/onboarding"
+      afterSignUpUrl="/onboarding"
+    >
       <html lang="en">
         <body>{children}</body>
       </html>

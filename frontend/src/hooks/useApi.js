@@ -1,12 +1,21 @@
 "use client";
 import { useAuth } from "@clerk/nextjs";
-import { useMemo } from "react";
+import { useRef, useCallback } from "react";
 import { createAuthClient } from "../lib/api";
 
 export function useApi() {
   const { getToken } = useAuth();
+  // Use ref so the client instance is stable across renders
+  const clientRef = useRef(null);
 
-  const client = useMemo(() => createAuthClient(getToken), [getToken]);
+  if (!clientRef.current) {
+    clientRef.current = createAuthClient(getToken);
+  }
 
-  return client;
+  // Expose a refresh in case token changes (e.g. after sign-in)
+  const refreshClient = useCallback(() => {
+    clientRef.current = createAuthClient(getToken);
+  }, [getToken]);
+
+  return clientRef.current;
 }

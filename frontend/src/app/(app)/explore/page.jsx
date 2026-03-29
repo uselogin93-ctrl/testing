@@ -12,8 +12,7 @@ export default function ExplorePage() {
   const [selectedPost, setSelectedPost] = useState(null);
 
   useEffect(() => {
-    api
-      .getExplore(apiClient)
+    api.getExplore(apiClient)
       .then(({ data }) => setPosts(data))
       .catch(console.error)
       .finally(() => setLoading(false));
@@ -29,26 +28,19 @@ export default function ExplorePage() {
       </div>
 
       {loading && (
-        <div style={{ textAlign: "center", padding: "3rem", color: "var(--text-muted)" }}>
-          Loading...
+        <div style={{ display: "flex", justifyContent: "center", padding: "4rem" }}>
+          <div style={{ width: 36, height: 36, border: "3px solid var(--brand)", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
         </div>
       )}
 
-      {posts.map((post) => (
-        <PostCard
-          key={post._id}
-          post={post}
-          apiClient={apiClient}
-          onCommentClick={setSelectedPost}
-        />
-      ))}
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+        {posts.map((post) => (
+          <PostCard key={post._id} post={post} apiClient={apiClient} onCommentClick={setSelectedPost} />
+        ))}
+      </div>
 
       {selectedPost && (
-        <CommentModal
-          post={selectedPost}
-          apiClient={apiClient}
-          onClose={() => setSelectedPost(null)}
-        />
+        <CommentModal post={selectedPost} apiClient={apiClient} onClose={() => setSelectedPost(null)} />
       )}
     </>
   );
